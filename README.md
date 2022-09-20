@@ -18,3 +18,17 @@ Vue/Vite apps not working with aws-amplify v4.3.32 up to current latest (v4.3.35
 To test, clone this repo and `npm i` then `npm run dev`
 
 Then cancel the running dev-server, `npm i aws-amplify@4.3.31` and `npm run dev` again and the app should load correctly
+
+## Reproduce from Scratch
+
+```bash
+npm init vue@latest
+npm install
+npm install aws-amplify
+```
+
+Add the following imports to `main.js`, *any* of them individually or all of them
+```js
+import { Amplify, Auth, Hub, PubSub } from 'aws-amplify'
+import { AWSIoTProvider } from '@aws-amplify/pubsub'
+```
