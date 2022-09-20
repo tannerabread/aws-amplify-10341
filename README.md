@@ -1,9 +1,18 @@
 # amplify-js#10341
 
-The issue is happeninig on aws-amplify@4.3.32 and later
+## Background
+Vue/Vite apps not working with aws-amplify v4.3.32 up to current latest (v4.3.35)
 
-It happens with any of the imports related to "aws-amplify" found in the main.js of this repo. They can be tested as a whole or isolated 
+## Details
+* Throws error with 4.3.32-4.3.35
 
+* Does not throw error on 4.3.31 and before
+
+* It happens with any of the imports related to "aws-amplify" found in the `main.js` of this repo. They can be tested as a whole or isolated 
+
+* Shows error: `TypeError: Object prototype may only be an Object or null: undefined at setPrototypeOf (<anonymous>)`
+
+## Reproduction
 To test, clone this repo and `npm i` then `npm run dev`
 
-Then cancel the running dev-server, `npm i aws-amplify@4.3.31` and `npm run dev` again and it should work
+Then cancel the running dev-server, `npm i aws-amplify@4.3.31` and `npm run dev` again and the app should load correctly
